@@ -21,7 +21,6 @@ public class ListModels {
 				String appName = app.toString();
 				list.forEach(model -> {
 					System.out.println("AppName: " + appName + " || model: " + model);
-					
 				});
 			});
 		} catch (ModelNotFoundException | IOException e) {

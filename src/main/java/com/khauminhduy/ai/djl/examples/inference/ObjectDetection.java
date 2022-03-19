@@ -53,12 +53,12 @@ public class ObjectDetection {
 				Criteria.builder()
 						.optApplication(Application.CV.OBJECT_DETECTION)
 						.setTypes(Image.class, DetectedObjects.class)
-						.optModelPath(Paths.get(System.getProperty("user.home") + "/BHX-Pos/resnet50_ssd/resnet50_ssd_model-0000.params"))
-						.optModelName("BHX-Pos/resnet50_ssd")
-						.optTranslator(translator)
-//						.optFilter("backbone", "resnet50_ssd")
-//						.optEngine(Engine.getDefaultEngineName())
-//						.optProgress(new ProgressBar())
+//						.optModelPath(Paths.get(System.getProperty("user.home") + "/BHX-Pos/resnet50_ssd/resnet50_ssd_model-0000.params"))
+//						.optModelName("BHX-Pos/resnet50_ssd")
+//						.optTranslator(translator)
+						.optFilter("backbone", backbone)
+						.optEngine(Engine.getDefaultEngineName())
+						.optProgress(new ProgressBar())
 						.build();
 		try (ZooModel<Image, DetectedObjects> model = criteria.loadModel();) {
 			try (Predictor<Image, DetectedObjects> predictor = model.newPredictor();) {
